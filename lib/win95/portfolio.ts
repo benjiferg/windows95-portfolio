@@ -237,6 +237,27 @@ Available worldwide and at Nordstrom and Urban Outfitters, with free domestic sh
     size: "4.7 MB",
     openMode: "external",
   },
+  {
+    slug: "w3bp",
+    name: "W3bp",
+    tagline: "Image to WebP converter, right in the browser",
+    description: `W3bp converts images to WebP without uploading anything to a server. Pick a single file or a whole folder, and get back smaller files that load faster on the web.
+
+No account, no install, no waiting. Open the page, choose your images, download the results.`,
+    logo: "/software/w3bp/logo.png",
+    logoSmall: "/software/w3bp/logo-16.png",
+    year: "2026",
+    tags: ["Web app", "Tool", "Images", "WebP"],
+    features: [
+      "Convert a single image or an entire folder at once",
+      "Runs in the browser, so files stay on your machine",
+      "Smaller output for faster-loading sites",
+      "Nothing to sign up for or install",
+    ],
+    website: "https://www.w3bp.com",
+    size: "0.9 MB",
+    openMode: "browser",
+  },
 ]
 
 export const softwareBySlug = (slug: string) => software.find((s) => s.slug === slug)
