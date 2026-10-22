@@ -890,8 +890,9 @@ select.field {
 }
 .msgbox .msg-text {
   padding-top: 8px;
-  max-width: 340px;
+  max-width: min(460px, calc(100vw - 100px));
   white-space: pre-wrap;
+  overflow-wrap: break-word;
   line-height: 1.3;
 }
 

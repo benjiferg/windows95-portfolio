@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
 import { registerApp, type AppProps } from "@/lib/win95/registry"
 import { wm, launch } from "@/lib/win95/store"
 import { settings, useSettings } from "@/lib/win95/settings"
@@ -34,17 +34,33 @@ function MsgBox({ win }: AppProps) {
   }
   const buttons = p.buttons ?? ["OK"]
   const firstRef = useRef<HTMLButtonElement>(null)
+  const bodyRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     firstRef.current?.focus()
     if (p.icon === "error" || p.icon === "warning" || p.icon === "question") sounds.chord()
     else if (p.icon === "info") sounds.ding()
   }, [p.icon])
+  // Size the window to its content (long texts, many buttons), keeping it on screen.
+  useLayoutEffect(() => {
+    const el = bodyRef.current
+    if (!el) return
+    const maxW = Math.min(560, window.innerWidth - 40)
+    const maxH = window.innerHeight - 28 - 40
+    const w = Math.min(maxW, Math.max(win.w, el.scrollWidth + 8))
+    const h = Math.min(maxH, el.scrollHeight + 28)
+    if (Math.abs(w - win.w) > 2 || Math.abs(h - win.h) > 2) {
+      const x = Math.max(0, Math.min(win.x, window.innerWidth - w))
+      const y = Math.max(0, Math.min(win.y, window.innerHeight - 28 - h))
+      wm.update(win.id, { w, h, x, y })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [p.text, buttons.length])
   const done = (v: string) => {
     p.resolve(v)
     wm.close(win.id)
   }
   return (
-    <div className="col" style={{ flex: 1 }}>
+    <div className="col w95-scroll" style={{ flex: 1, overflow: "auto" }} ref={bodyRef}>
       <div className="msgbox">
         {p.icon && p.icon !== "none" && <Icon name={MSG_ICON[p.icon] ?? "msg_information"} />}
         <div className="msg-text">{p.text}</div>
