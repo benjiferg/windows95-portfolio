@@ -189,6 +189,30 @@ Built on the data collected and openly shared by Matthew Parrilla, with daily re
     size: "2.4 MB",
     openMode: "browser",
   },
+  {
+    slug: "enjoyhemp",
+    name: "Enjoy Hemp",
+    tagline: "Legal hemp-derived THC gummies, drinks and spirits",
+    description: `Enjoy Hemp sells legal, hemp-derived THC products: gummies, seltzers, drinks, syrups and spirits, made for how you want to feel.
+
+Pick Your Feeling: Euphoria, Sleep, Chill, Social, Bliss or Relief, then choose a strength from beginner-friendly low potency up to high potency. Every product is third-party lab tested and ships nationwide, with free shipping over $100.
+
+Over five million legal THC products sold.`,
+    logo: "/software/enjoyhemp/logo.png",
+    logoSmall: "/software/enjoyhemp/logo-16.png",
+    year: "2026",
+    tags: ["E-commerce", "Web app", "Consumer brand"],
+    features: [
+      "Shop by feeling and by strength, with a 30-second product quiz",
+      "Gummies, THC drinks and seltzers, syrups and THC spirits",
+      "Quick onset, lab-tested formulas with predictable dosing",
+      "Published lab results and a wholesale program",
+      "Nationwide shipping with free shipping over $100",
+    ],
+    website: "https://enjoyhemp.co",
+    size: "6.1 MB",
+    openMode: "external",
+  },
 ]
 
 export const softwareBySlug = (slug: string) => software.find((s) => s.slug === slug)
