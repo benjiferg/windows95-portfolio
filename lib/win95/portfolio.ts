@@ -258,6 +258,30 @@ No account, no install, no waiting. Open the page, choose your images, download 
     size: "0.9 MB",
     openMode: "browser",
   },
+  {
+    slug: "luxurycharterbrokers",
+    name: "Luxury Charter Brokers",
+    tagline: "Fully crewed, all-inclusive yacht charters, Caribbean and worldwide",
+    description: `Luxury Charter Brokers books crewed, all-inclusive charters on hand-picked, vetted yachts: catamarans, power cats, motor yachts, sailing yachts and motor sailers.
+
+The Caribbean is the specialty, with the US and British Virgin Islands the most popular destination, followed by the Bahamas and the Leeward and Windward Islands. Real prices and availability are shown up front, with a broker on hand from first enquiry to the end of the trip.
+
+Search by yacht type, destination, dates and guest count, read the guest book, and see how booking works.`,
+    logo: "/software/luxurycharterbrokers/logo.png",
+    logoSmall: "/software/luxurycharterbrokers/logo-16.png",
+    year: "2026",
+    tags: ["Web app", "Booking", "Travel", "Marketplace"],
+    features: [
+      "Browse vetted yachts by type, destination, dates and number of guests",
+      "Live weekly pricing and availability for every yacht",
+      "Destination guides for the Virgin Islands, Bahamas and beyond",
+      "Guest reviews and a guest book from real charters",
+      "Broker support throughout, with FAQs and a how-booking-works guide",
+    ],
+    website: "https://web-drab-phi-95.vercel.app",
+    size: "7.4 MB",
+    openMode: "browser",
+  },
 ]
 
 export const softwareBySlug = (slug: string) => software.find((s) => s.slug === slug)
