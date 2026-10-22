@@ -213,6 +213,30 @@ Over five million legal THC products sold.`,
     size: "6.1 MB",
     openMode: "external",
   },
+  {
+    slug: "summersolacetallow",
+    name: "Summer Solace Tallow",
+    tagline: "Regenerative tallow skincare and candles, handmade in Oakland",
+    description: `Summer Solace Tallow makes holistic skincare, balms, soaps and clean-burning candles from regeneratively raised Northern California suet tallow and regional ingredients.
+
+Chef- and perfumer-crafted in Oakland, California since 2014, for dry, sensitive and hardworking skin. Whole-body nourishment from pasture to palm.
+
+Available worldwide and at Nordstrom and Urban Outfitters, with free domestic shipping over $175.`,
+    logo: "/software/summersolacetallow/logo.png",
+    logoSmall: "/software/summersolacetallow/logo-16.png",
+    year: "2026",
+    tags: ["E-commerce", "Shopify", "Consumer brand", "Skincare"],
+    features: [
+      "Shop by skin concern or by product: balms, face oils, lip balms, soaps and candles",
+      "Pure unscented tallow line for sensitive skin, plus mineral zinc and tinted balms",
+      "Learn section and getting-started guides for tallow skincare",
+      "Rewards program and customer reviews on every product",
+      "Accessibility screen-reader mode built in",
+    ],
+    website: "https://summersolacetallow.com",
+    size: "4.7 MB",
+    openMode: "external",
+  },
 ]
 
 export const softwareBySlug = (slug: string) => software.find((s) => s.slug === slug)
