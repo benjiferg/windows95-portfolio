@@ -44,6 +44,13 @@ export interface Software {
   source?: string
   /** Approximate install size shown in Add/Remove Programs, e.g. "4.2 MB" */
   size?: string
+  /**
+   * What opening the program does:
+   *  - "window"  (default) opens the About/Screenshots/Links program window
+   *  - "browser" opens `website` inside Internet Explorer on the desktop
+   *  - "external" opens `website` in a new browser tab
+   */
+  openMode?: "window" | "browser" | "external"
 }
 
 export interface Profile {
@@ -109,6 +116,31 @@ The rest of the machine is a working recreation of Windows 95: open the MS-DOS P
  *   size: "2.1 MB",
  * },
  */
-export const software: Software[] = []
+export const software: Software[] = [
+  {
+    slug: "sparkform",
+    name: "Sparkform",
+    tagline: "Custom matchbooks and matchboxes, designed in your browser",
+    description: `Design it flat. Watch it fold. Strike it for real.
+
+Sparkform is a matchbook and matchbox designer that shows your design in 3D while you work. Every format sits on the real factory dieline, so bleed, live areas and the striker are enforced before you order.
+
+Printed by the last match factory in America, in Jaffrey, New Hampshire. Runs start at 50 pieces, for weddings, bars, hotels and brands.`,
+    logo: "/software/sparkform/logo.png",
+    logoSmall: "/software/sparkform/logo-16.png",
+    year: "2026",
+    tags: ["Web app", "3D designer", "E-commerce", "Print"],
+    features: [
+      "Live 3D preview that folds the sheet into the finished book or box, including foil and gloss",
+      "Real factory dielines with bleed, live areas and striker enforced by preflight",
+      "Six formats: 20- and 30-strike books, Euro box, lipstick box and more",
+      "Small runs from 50 pieces with automatic bulk pricing",
+      "Proof approval before anything prints",
+    ],
+    website: "https://sparkform.dev",
+    size: "3.2 MB",
+    openMode: "browser",
+  },
+]
 
 export const softwareBySlug = (slug: string) => software.find((s) => s.slug === slug)

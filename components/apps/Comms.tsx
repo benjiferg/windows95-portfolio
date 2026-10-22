@@ -881,7 +881,8 @@ function InternetExplorer({ win }: AppProps) {
   const isFile = url.startsWith("file:///")
   const fileContent = isFile ? fs.readFile(url.slice(8).replace(/\//g, "\\")) : null
 
-  const title = page?.title ?? (isFile ? fs.basename(url.slice(8).replace(/\//g, "\\")) : url)
+  const matchedSoftware = software.find((s) => s.website && url.replace(/\/$/, "").startsWith(s.website.replace(/\/$/, "")))
+  const title = page?.title ?? (isFile ? fs.basename(url.slice(8).replace(/\//g, "\\")) : matchedSoftware ? `${matchedSoftware.name} - ${matchedSoftware.tagline}` : url)
   useEffect(() => {
     wm.setTitle(win.id, `${title} - Microsoft Internet Explorer`)
   }, [title, win.id])
@@ -966,7 +967,7 @@ function InternetExplorer({ win }: AppProps) {
             )}
             <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, background: "var(--info)", borderTop: "1px solid #000", padding: "4px 8px", fontSize: 11, display: "flex", gap: 10, alignItems: "center" }}>
               <img src={iconUrl("msg_information", 16)} alt="" />
-              <span>Many modern sites refuse to load inside Internet Explorer 3.0. </span>
+              <span>Page not loading, or want the full-size version? </span>
               <a href={url} target="_blank" rel="noreferrer">Open {url.length > 40 ? url.slice(0, 40) + "…" : url} in a new window</a>
             </div>
           </>

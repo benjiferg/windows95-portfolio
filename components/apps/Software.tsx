@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { registerApp, type AppProps } from "@/lib/win95/registry"
 import { wm, launch } from "@/lib/win95/store"
 import { profile, software, type Software } from "@/lib/win95/portfolio"
@@ -167,12 +167,27 @@ function SoftwareApp({ win, sw }: AppProps & { sw: Software }) {
   )
 }
 
+/** For openMode "browser"/"external": a window that immediately hands off and closes itself. */
+function SoftwareLauncher({ win, sw }: AppProps & { sw: Software }) {
+  const done = useRef(false)
+  useEffect(() => {
+    if (done.current) return
+    done.current = true
+    wm.close(win.id)
+    if (sw.openMode === "external") openExternal(sw.website)
+    else launch("iexplore", { url: sw.website ?? `http://www.benjaminferguson.home/software/${sw.slug}` })
+  }, [win.id, sw])
+  return null
+}
+
 for (const sw of software) {
+  const direct = sw.openMode === "browser" || sw.openMode === "external"
   registerApp({
     id: "sw:" + sw.slug,
     name: sw.name,
     icon: sw.logo as IconName,
-    component: (props: AppProps) => <SoftwareApp {...props} sw={sw} />,
+    component: direct ? (props: AppProps) => <SoftwareLauncher {...props} sw={sw} /> : (props: AppProps) => <SoftwareApp {...props} sw={sw} />,
+    noTaskbar: direct,
     width: 520,
     height: 420,
     minW: 360,

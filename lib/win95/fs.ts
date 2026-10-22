@@ -590,7 +590,11 @@ wave=sb16snd.drv
     d("RECENT", []),
     d("SPOOL", [d("PRINTERS", [])]),
     d("SHELLNEW", [bin("WINWORD.DOC", 4608), bin("EXCEL.XLS", 2000), bin("SNDREC.WAV", 100), bin("WORDPAD.DOC", 100)]),
-    d("DESKTOP", []),
+    d(
+      "DESKTOP",
+      software.map((s) => f(s.name + ".lnk", "", { exe: "sw:" + s.slug, size: 400, icon: s.logo as IconName, modified: NOW })),
+      { modified: NOW },
+    ),
     d("START MENU", [programsMenu()]),
     d("FAVORITES", [
       ...profile.links
