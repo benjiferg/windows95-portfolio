@@ -216,7 +216,8 @@ textarea::-webkit-scrollbar-button:single-button:horizontal:increment,
 }
 .desktop.wall-stretch {
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .desktop-icon {
@@ -244,11 +245,13 @@ textarea::-webkit-scrollbar-button:single-button:horizontal:increment,
   overflow-wrap: break-word;
   line-height: 1.15;
   border: 1px dotted transparent;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75), -1px 0 0 rgba(0, 0, 0, 0.35), 0 -1px 0 rgba(0, 0, 0, 0.35);
 }
 .desktop-icon.selected .icon-label {
   background: var(--highlight);
   color: var(--highlight-text);
   border-color: #ffffff;
+  text-shadow: none;
 }
 .desktop-icon.selected img {
   filter: brightness(0.55) sepia(1) hue-rotate(190deg) saturate(3);

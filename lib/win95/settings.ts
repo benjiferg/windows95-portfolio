@@ -32,8 +32,8 @@ export interface Settings {
 
 const DEFAULTS: Settings = {
   colorScheme: "Windows Standard",
-  wallpaper: null,
-  wallpaperMode: "tile",
+  wallpaper: "Bliss",
+  wallpaperMode: "stretch",
   pattern: null,
   screenSaver: "marquee",
   screenSaverWait: 5,
@@ -51,7 +51,7 @@ const DEFAULTS: Settings = {
   customWallpapers: {},
 }
 
-const KEY = "w95.settings.v1"
+const KEY = "w95.settings.v2"
 
 function load(): Settings {
   if (typeof window === "undefined") return DEFAULTS
@@ -345,6 +345,7 @@ function svg(w: number, h: number, body: string) {
 }
 
 export const wallpapers: Record<string, string> = {
+  Bliss: "/wallpapers/bliss.jpg",
   "Black Thatch": svg(
     16,
     16,
