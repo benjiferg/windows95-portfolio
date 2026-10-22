@@ -141,6 +141,54 @@ Printed by the last match factory in America, in Jaffrey, New Hampshire. Runs st
     size: "3.2 MB",
     openMode: "browser",
   },
+  {
+    slug: "nursewellness",
+    name: "Nurse Wellness",
+    tagline: "Premium THC & CBD, shipped fast and discreetly",
+    description: `Nurse Wellness is an online store for THC and CBD products: gummies, flower, pre-rolls, vapes, beverages, tinctures and topicals, with no medical card required.
+
+Every product is third-party lab tested. Orders ship discreetly, with free shipping over $100, and there is a retail location in Old City Philadelphia.
+
+Over 3,000 five-star reviews. You must be 21 or older to shop.`,
+    logo: "/software/nursewellness/logo.png",
+    logoSmall: "/software/nursewellness/logo-16.png",
+    year: "2026",
+    tags: ["E-commerce", "Web app", "Retail"],
+    features: [
+      "Shop by product type or by mood: Sleepy, Happy, Energized, Chill, Creative, Social",
+      "Third-party lab results for every product",
+      "Rewards program and order tracking",
+      "Age verification and secure card payments",
+      "Store hours, directions and events for the Philadelphia location",
+    ],
+    website: "https://nursewellness.com",
+    size: "5.8 MB",
+    openMode: "external",
+  },
+  {
+    slug: "mountmansfieldstake",
+    name: "Mt Mansfield Snow Stake",
+    tagline: "Live snow depth and 70+ years of daily data from 3,900 ft",
+    description: `Live readings from the Mt Mansfield snow stake in Stowe, Vermont, with daily snow depth records going back to 1954.
+
+Compare the current season against every season on record, browse by decade, explore any date, and check the webcams, resort conditions and trail map before you head up.
+
+Built on the data collected and openly shared by Matthew Parrilla, with daily reports from NWS Burlington.`,
+    logo: "/software/mountmansfieldstake/logo.png",
+    logoSmall: "/software/mountmansfieldstake/logo-16.png",
+    year: "2026",
+    tags: ["Data visualization", "Web app", "Weather", "Skiing"],
+    features: [
+      "Current depth, today's ranking and season max against 68 seasons of history",
+      "Interactive depth charts with historical average and percentile bands",
+      "Quick compare: top five snowiest, least snow, last five years",
+      "Date explorer, snow calendar and decade views",
+      "Webcams, resort forecast, trail map and CSV data download",
+    ],
+    website: "https://mountmansfieldstake.com",
+    size: "2.4 MB",
+    openMode: "browser",
+  },
 ]
 
 export const softwareBySlug = (slug: string) => software.find((s) => s.slug === slug)
